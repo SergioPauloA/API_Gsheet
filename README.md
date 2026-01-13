@@ -1,4 +1,4 @@
-# 📊 Google Sheets API Interna com Apps Script
+# 📊 API Interna para Google Sheets com Apps Script
 
 </br >
 <div align="center">
@@ -6,109 +6,141 @@
 [![JavaScript](https://img.shields.io/badge/JavaScript-Code-yellow?logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Clasp](https://img.shields.io/badge/Clasp-Google%20Apps%20Script-blue?logo=google)](https://github.com/google/clasp)
 [![Google Sheets](https://img.shields.io/badge/Google%20Sheets-Spreadsheet-green?logo=google-sheets)](https://developers.google.com/sheets)
-[![Node.js](https://img.shields.io/badge/Node.js-Backend-339933?logo=node.js)](https://nodejs.org)
+[![Node.js](https://img.shields.io/badge/Node. js-Backend-339933?logo=node.js)](https://nodejs.org)
 [![Apps Script](https://img.shields.io/badge/Google%20Apps%20Script-Docs-blue?logo=google)](https://developers.google.com/apps-script)
 
 </div>
 </br >
 
-
 ### 📝 Descrição
 
-Este projeto cria uma API interna para o Google Sheets utilizando Google Apps Script e JavaScript ES6 para realizar operações CRUD (leitura, inserção, edição e exclusão de dados). A estrutura modular e escalável facilita o gerenciamento de dados diretamente no Apps Script, tornando o projeto ideal para automações no Google Sheets.
+Este projeto implementa uma API interna robusta para Google Sheets, utilizando Google Apps Script e recursos modernos do JavaScript ES6 para executar operações completas de CRUD (criar, ler, atualizar e deletar dados). A arquitetura modular e expansível proporciona gerenciamento eficiente de dados diretamente no ambiente Apps Script, sendo uma solução ideal para automações avançadas em planilhas Google.
 
-### Uso
-#### Operações CRUD:
-- Leitura (GET): Obtenha dados da planilha.
-- Inserção (Push): Adicione novos dados na planilha.
-- Edição: (updateRowById): Atualize dados específicos na planilha.
-- Exclusão: (eleteRowBuId): Remova registros com base em ID da planilha.
+### Funcionalidades
+#### Operações Disponíveis:
+- **Leitura (GET)**: Recupere dados estruturados da planilha
+- **Inserção (Push)**: Adicione novos registros à planilha
+- **Atualização (updateRowById)**: Modifique dados específicos usando identificadores
+- **Exclusão (deleteRowById)**: Remova registros baseando-se em IDs únicos
 
-### Principal do código
+### Estrutura Central do Código
 
 [![JavaScript](https://img.shields.io/badge/JavaScript-Code-yellow?logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Apps Script](https://img.shields.io/badge/Google%20Apps%20Script-Docs-blue?logo=google)](https://developers.google.com/apps-script)
+[![Apps Script](https://img.shields.io/badge/Google%20Apps%20Script-Docs-blue? logo=google)](https://developers.google.com/apps-script)
 
 ```javascript
-// JavaScript - Definição dos Métodos da Classe PlanilhaManager
+// JavaScript - Métodos Disponíveis na Classe PlanilhaManager
 PlanilhaManager(planilhaId, abaNome)
 obterAba(id, name)
 getDados(row, colinit, qtcol)
 pushDados(array)
 updateRowById(idCliente, updates)
 deleteRowById(idCliente)
-
 ```
 
-###  Uso
+### 💡 Exemplos de Implementação
+
 ```javascript
 // Exemplo 1: getDados(row, colinit, qtcol)
+// Recupera dados de um intervalo específico da planilha
 function getCliente() {
   const manager = new PlanilhaManager(planilhas.cadastro, abasClientes.clientes)
   const dados = manager.getDados(2, colunasClientes.ID, 6) 
-  console.log(dados) // Retorna dados do intervalo especificado em forma de matriz
+  console.log(dados) // Retorna uma matriz com os dados do intervalo especificado
 }
-// Recebe: `row` (linha inicial), `colinit` (coluna inicial), `qtcol` (quantidade de colunas a ler).
-// Retorna: Uma matriz com os dados.
+// Parâmetros: `row` (linha de início), `colinit` (coluna inicial), `qtcol` (número de colunas)
+// Retorno:  Matriz bidimensional contendo os dados solicitados
 
 // Exemplo 2: pushDados(array)
+// Insere uma nova linha de dados na planilha
 function pushCliente() {
   const manager = new PlanilhaManager(planilhas.cadastro, abasClientes.clientes)
   const novoCliente = ['1002', 'Carlos', 'Almeida', 'carlos@email.com', 'Male', '987-654-3210']
-  manager.pushDados(novoCliente) // Insere uma nova linha com dados do cliente
+  manager.pushDados(novoCliente) // Adiciona novo registro ao final da planilha
 }
-// Recebe: `array` com dados do cliente.
-// Resultado: Adiciona uma nova linha no final da planilha.
+// Parâmetros: `array` contendo os dados do novo cliente
+// Ação: Anexa uma nova linha com as informações fornecidas
 
 // Exemplo 3: updateRowById(idCliente, updates)
+// Atualiza campos específicos de um registro existente
 function editarCliente() {
   const manager = new PlanilhaManager(planilhas.cadastro, abasClientes.clientes)
   const idCliente = 1002
   const updates = {
-    [colunasClientes.NOME]: 'Carlos Henrique',
-    [colunasClientes.EMAIL]: 'carlos.henrique@email.com'
+    [colunasClientes.NOME]:  'Carlos Henrique',
+    [colunasClientes. EMAIL]: 'carlos.henrique@email.com'
   }
-  manager.updateRowById(idCliente, updates) // Atualiza apenas os campos especificados
+  manager.updateRowById(idCliente, updates) // Modifica apenas os campos especificados
 }
-// Recebe: `idCliente` e `updates` (colunas e valores a atualizar).
-// Resultado: Atualiza os campos especificados na linha do `idCliente`.
+// Parâmetros: `idCliente` (identificador) e `updates` (objeto com colunas e novos valores)
+// Ação: Atualiza seletivamente os campos indicados na linha correspondente
 
 // Exemplo 4: deleteRowById(idCliente)
+// Remove um registro específico da planilha
 function deleteCliente() {
   const manager = new PlanilhaManager(planilhas.cadastro, abasClientes.clientes)
   const idCliente = 1002
-  manager.deleteRowById(idCliente) // Exclui a linha do cliente especificado
+  manager.deleteRowById(idCliente) // Elimina o registro do cliente especificado
 }
-// Recebe: `idCliente` para identificar a linha.
-// Resultado: Remove a linha correspondente ao `idCliente`.
-
+// Parâmetros: `idCliente` para localizar o registro
+// Ação: Remove completamente a linha correspondente ao identificador
 ```
-</br >
-
-Este projeto é escalável porque centralizamos toda a manipulação de dados em uma única classe, PlanilhaManager, e seus métodos. Isso significa que, para qualquer operação (leitura, inserção, edição ou exclusão), basta instanciar PlanilhaManager e chamar o método correspondente. Essa abordagem simplifica o código e facilita a expansão para novas planilhas ou operações, pois qualquer mudança ou adição é feita diretamente nos métodos da classe, mantendo o restante do projeto organizado e fácil de manter.
 
 </br >
 
-# Para você usar o código e só cópiar o código da  pasta apisheet.js e colar no seu projeto apps script 
+### 🎯 Arquitetura Escalável
 
-# Opção abaixo para usar EDE externa.
+Este projeto adota uma arquitetura altamente escalável ao centralizar toda a manipulação de dados em uma única classe:  **PlanilhaManager** e seus métodos especializados. Essa abordagem oferece benefícios significativos:
 
-### 🚀 Requisitos para clonar o projeto apps com editor (Se sua preferência e editar o projeto em uma EDE).
+- **Simplicidade**: Para qualquer operação (leitura, inserção, atualização ou exclusão), basta instanciar `PlanilhaManager` e invocar o método apropriado
+- **Manutenibilidade**: Todas as modificações ou adições são implementadas diretamente nos métodos da classe
+- **Organização**: O código permanece estruturado e de fácil compreensão
+- **Expansibilidade**:  Novas planilhas ou operações podem ser integradas sem afetar o código existente
+
+</br >
+
+# 📦 Implementação Rápida
+
+### Para utilizar este código em seu projeto, simplesmente copie o conteúdo do arquivo `apisheet.js` e cole no editor do Apps Script
+
+</br >
+
+# 🛠️ Alternativa:  Desenvolvimento com IDE Externa
+
+### 🚀 Pré-requisitos para Clonar o Projeto (Para desenvolvimento em IDE local)
 
 [![Clasp](https://img.shields.io/badge/Clasp-Google%20Apps%20Script-blue?logo=google)](https://github.com/google/clasp)
 
 ```
-Para clonar o projeto no git e o processo normal de clone.
-Para clonar o projeto do apps script com editor tem que usar o clasp.
-Node 21.7.1
-Conta Google para acessar o Google Sheets e o Apps Script
-Clasp https://github.com/google/clasp
-Para logar no clasp rode  npm run login - intrução no package.json
-Para clonar o projeto do apps primeiro substitua o id do projeto do apps no package.json no clone pelo id do seu projeto, depois e só rodar npm run clone, assim vai ser criada a conexão apps script com seu editor.
-Obs.: Vai ser criando um .clasp.json  que ele deve aparecer dentro da pasta apps ele tem que ser movido para raiz do projeto.
+📋 Requisitos:
+- Node.js versão 21.7.1 ou superior
+- Conta Google ativa com acesso ao Google Sheets e Apps Script
+- Clasp (Command Line Apps Script Projects) - https://github.com/google/clasp
+
+🔧 Processo de Configuração: 
+
+1. Clone do Repositório Git:
+   Procedimento padrão de clonagem de repositório
+
+2. Autenticação no Clasp:
+   Execute:  npm run login
+   (Consulte instruções detalhadas no package.json)
+
+3. Clone do Projeto Apps Script:
+   a) Substitua o ID do projeto no arquivo package.json
+      (localize o campo "clone" e insira o ID do seu projeto Apps Script)
+   b) Execute: npm run clone
+   c) Isso estabelecerá a conexão entre o Apps Script e seu editor local
+
+4. Configuração Final:
+   Será gerado um arquivo .clasp.json dentro da pasta apps
+   ⚠️ IMPORTANTE: Mova este arquivo para a raiz do projeto para funcionamento correto
+
 ```
-</br>
+
+</br >
 <div align="center">
 
+**Desenvolvido por Sergio Paulo de Andrade** 
 
-</div># api-interna-sheets-apps
+</div>
