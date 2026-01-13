@@ -3,7 +3,6 @@
 </br >
 <div align="center">
 
-[![YouTube](https://img.shields.io/badge/YouTube-Watch-red?logo=youtube)](https://youtu.be/sTRHRNNXFEw)
 [![JavaScript](https://img.shields.io/badge/JavaScript-Code-yellow?logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Clasp](https://img.shields.io/badge/Clasp-Google%20Apps%20Script-blue?logo=google)](https://github.com/google/clasp)
 [![Google Sheets](https://img.shields.io/badge/Google%20Sheets-Spreadsheet-green?logo=google-sheets)](https://developers.google.com/sheets)
@@ -111,6 +110,5 @@ Obs.: Vai ser criando um .clasp.json  que ele deve aparecer dentro da pasta apps
 </br>
 <div align="center">
 
-[![YouTube](https://img.shields.io/badge/YouTube-Watch-red?logo=youtube)](https://youtu.be/sTRHRNNXFEw)
 
 </div># api-interna-sheets-apps
