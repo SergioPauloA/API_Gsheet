@@ -6,7 +6,7 @@
 [![JavaScript](https://img.shields.io/badge/JavaScript-Code-yellow?logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Clasp](https://img.shields.io/badge/Clasp-Google%20Apps%20Script-blue?logo=google)](https://github.com/google/clasp)
 [![Google Sheets](https://img.shields.io/badge/Google%20Sheets-Spreadsheet-green?logo=google-sheets)](https://developers.google.com/sheets)
-[![Node.js](https://img.shields.io/badge/Node. js-Backend-339933?logo=node.js)](https://nodejs.org)
+[![Node.js](https://img.shields.io/badge/Node.js-Backend-339933?logo=node.js)](https://nodejs.org)
 [![Apps Script](https://img.shields.io/badge/Google%20Apps%20Script-Docs-blue?logo=google)](https://developers.google.com/apps-script)
 
 </div>
