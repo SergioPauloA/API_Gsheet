@@ -26,7 +26,7 @@ Este projeto implementa uma API interna robusta para Google Sheets, utilizando G
 ### Estrutura Central do Código
 
 [![JavaScript](https://img.shields.io/badge/JavaScript-Code-yellow?logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Apps Script](https://img.shields.io/badge/Google%20Apps%20Script-Docs-blue? logo=google)](https://developers.google.com/apps-script)
+[![Apps Script](https://img.shields.io/badge/Google%20Apps%20Script-Docs-blue?logo=google)](https://developers.google.com/apps-script)
 
 ```javascript
 // JavaScript - Métodos Disponíveis na Classe PlanilhaManager
